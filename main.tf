@@ -5,6 +5,11 @@ terraform {
       version = "4.12.0"
     }
   }
+  backend "azurerm" {
+   resource_group_name = azurerm_resource_group.mytaga.name
+   storage_account_name = "taskboardstoragemytag"
+   container_name = "taskboardcontainer"
+   key = "terraform.tfstate"
 }
 
 provider "azurerm" {
